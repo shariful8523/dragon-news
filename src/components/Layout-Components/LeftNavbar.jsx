@@ -15,7 +15,7 @@ const LeftNavbar = () => {
 
     return (
         <div>
-            <h1 className='text-4xl font-bold mb-8' >All Category ({categories.length}) </h1>
+            <h1 className='text-4xl font-bold mb-8' >All Category </h1>
 
             <div className='flex flex-col gap-2 mb-10'>
                 {
