@@ -1,6 +1,12 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
+    const {userLogin,setUser} = useContext(AuthContext);
+
+
+
     const handleLoginAccount = (event) => {
         event.preventDefault();
 
@@ -8,6 +14,18 @@ const Login = () => {
         const password = event.target.password.value;
 
         console.log(email, password);
+
+        userLogin(email,password)
+        .then(result =>{
+            const user =result.user;
+            setUser(user);
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+              console.log(errorCode, errorMessage);
+          });
+        
     };
 
     return (
